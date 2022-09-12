@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tennis-tournament
-          image: tournamentacr.azurecr.io/rortizpe/tennis-tournament:latest
+          image: tournamentacr.azurecr.io/rortizpe/tennis-tournament:#{Build.BuildId}#
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
