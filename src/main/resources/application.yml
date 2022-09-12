@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: tenis-tournament
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: tournament
+
+server:
+  port: 8110
+
+logging:
+  level:
+    org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
+#    web: TRACE
+#    org.springframework.web: TRACE
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-custom.html
+    operationsSorter: method
