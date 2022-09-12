@@ -3,8 +3,8 @@ spring:
     name: tenis-tournament
   data:
     mongodb:
-      uri: mongodb://localhost:27017
-      #uri: "mongodb://tournament:eNIUjnik7lTG7EuhwlNkXeQWTZnPKcA0GgeW2QyIqEeZT5Vl87S3P7tDLgIiOTMRb4frot1yIO5fHroVT1Ll6Q==@tournament.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@tournament@"
+      #uri: mongodb://localhost:27017
+      uri: "mongodb://tournament:eNIUjnik7lTG7EuhwlNkXeQWTZnPKcA0GgeW2QyIqEeZT5Vl87S3P7tDLgIiOTMRb4frot1yIO5fHroVT1Ll6Q==@tournament.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@tournament@"
       database: tournament
 
 server:

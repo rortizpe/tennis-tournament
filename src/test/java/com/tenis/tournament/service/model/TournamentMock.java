@@ -117,7 +117,7 @@ public class TournamentMock {
 
   public static FilterTournamentRequest createFilterTournamentCaseTwo() {
     return FilterTournamentRequest.builder()
-      .id("631d201535f90066e27d0f56")
+      .id("631e1e5849f7b22bf7b55a6c")
       .nameWinner("")
       .tournament("tournament Test")
       .date(LocalDateTime.now())
