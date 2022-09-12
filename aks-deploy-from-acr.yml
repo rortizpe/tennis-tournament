@@ -1,12 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment # Kubernetes resource kind we are creating
+kind: Deployment
 metadata:
   name: tennis-tournament
 spec:
   selector:
     matchLabels:
       app: tennis-tournament
-  replicas: 1 # Number of replicas that will be created for this deployment
+  replicas: 3
   template:
     metadata:
       labels:
@@ -14,20 +14,24 @@ spec:
     spec:
       containers:
         - name: tennis-tournament
-          image: tournamentacr.azurecr.io/rortizpe/tennis-tournament:7
-          imagePullPolicy: IfNotPresent
+          image: tournamentacr.azurecr.io/rortizpe/tennis-tournament:#{Build.BuildId}#
+          imagePullPolicy: Always
           ports:
-            - containerPort: 8080 # The port that the container is running on in the cluster
+            - containerPort: 8110
 ---
-apiVersion: v1 # Kubernetes API version
-kind: Service # Kubernetes resource kind we are creating
-metadata: # Metadata of the resource kind we are creating
-  name: tennis-tournament-svc
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: tennis-tournament
+    k8s-app: tennis-tournament
+  name: tennis-tournament
 spec:
   selector:
     app: tennis-tournament
   ports:
-    - protocol: TCP
-      port: 8080 # The port that the service is running on in the cluster
-      targetPort: 8110 # The port exposed by the service
-  type: LoadBalancer # type of the service.
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8110
+  type: LoadBalancer
